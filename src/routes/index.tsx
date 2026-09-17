@@ -632,7 +632,7 @@ function Index() {
                 <Github className="h-5 w-5" strokeWidth={1.5} />
               </a>
               <a
-                href="https://github.com/Yashaswitir28/Resume/blob/main/Resume-Yashaswi%20.pdf"
+                href="https://drive.google.com/file/d/12G6xqtgbNalH3Pzas-evHvibW5pjXajM/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Resume"
