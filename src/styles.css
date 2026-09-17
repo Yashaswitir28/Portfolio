@@ -1,0 +1,120 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Manrope", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-signal: var(--signal);
+  --color-chart: var(--chart);
+  --color-ink: var(--ink);
+  --color-ink-card: var(--ink-card);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-border: var(--ink-border);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-ink-muted: var(--ink-muted);
+  --shadow-card: var(--shadow-card);
+}
+
+:root {
+  --radius: 0.25rem;
+  --background: oklch(0.975 0.006 95);
+  --foreground: oklch(0.16 0.018 152);
+  --card: oklch(0.99 0.003 95);
+  --card-foreground: oklch(0.16 0.018 152);
+  --popover: oklch(0.99 0.003 95);
+  --popover-foreground: oklch(0.16 0.018 152);
+  --primary: oklch(0.2 0.025 151);
+  --primary-foreground: oklch(0.98 0.006 95);
+  --secondary: oklch(0.94 0.012 102);
+  --secondary-foreground: oklch(0.2 0.025 151);
+  --muted: oklch(0.94 0.008 100);
+  --muted-foreground: oklch(0.48 0.018 150);
+  --accent: oklch(0.79 0.185 117);
+  --accent-foreground: oklch(0.17 0.025 145);
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(0.98 0.006 95);
+  --border: oklch(0.84 0.012 102);
+  --input: oklch(0.84 0.012 102);
+  --ring: oklch(0.67 0.18 118);
+  --signal: oklch(0.78 0.19 116);
+  --chart: oklch(0.38 0.04 157);
+  --ink: oklch(0.135 0.021 157);
+  --ink-card: oklch(0.195 0.029 158);
+  --ink-soft: oklch(0.25 0.032 158);
+  --ink-border: oklch(0.36 0.03 157);
+  --ink-foreground: oklch(0.96 0.008 105);
+  --ink-muted: oklch(0.69 0.018 145);
+  --shadow-card: 0 38px 90px color-mix(in oklab, var(--ink) 70%, transparent);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  ::selection {
+    background: var(--color-signal);
+    color: var(--color-primary);
+  }
+}
+
+@utility hero-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--border) 42%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--border) 35%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black 15%, transparent 88%);
+}
+
+@utility intro-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--ink-border) 34%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--ink-border) 34%, transparent) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(circle at center, black, transparent 68%);
+}
+
+@utility bank-card {
+  background-image:
+    linear-gradient(115deg, transparent 5%, color-mix(in oklab, var(--signal) 8%, transparent), transparent 55%),
+    radial-gradient(circle at 90% 10%, color-mix(in oklab, var(--signal) 15%, transparent), transparent 32%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
